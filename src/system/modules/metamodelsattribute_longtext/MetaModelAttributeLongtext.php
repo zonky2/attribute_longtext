@@ -25,43 +25,43 @@
 class MetaModelAttributeLongtext extends MetaModelAttributeSimple
 {
 
-    public function getSQLDataType()
-    {
-        return 'text NULL';
-    }
+	public function getSQLDataType()
+	{
+		return 'text NULL';
+	}
 
-    public static function getAttributeSettingNames()
-    {
-        return array_merge(parent::getAttributeSettingNames(), array(
-                    'parentCheckbox',
-                    'titleField',
-                    'width50',
-                    'insertBreak',
-                    'sortingField',
-                    'filteredField',
-                    'searchableField',
-                    'mandatory',
-                    'defValue',
-                    'uniqueItem',
-                    'formatPrePost',
-                    'format',
-                    'editGroups'
-                ));
-    }
+	public function getAttributeSettingNames()
+	{
+		return array_merge(parent::getAttributeSettingNames(), array(
+			'parentCheckbox',
+			'titleField',
+			'width50',
+			'insertBreak',
+			'sortingField',
+			'filteredField',
+			'searchableField',
+			'mandatory',
+			'defValue',
+			'uniqueItem',
+			'formatPrePost',
+			'format',
+			'editGroups'
+		));
+	}
 
-    public function getFieldDefinition()
-    {
-        $arrFieldDef = parent::getFieldDefinition();
-        $arrFieldDef['inputType'] = 'longtext';
-        return $arrFieldDef;
-    }
+	public function getFieldDefinition()
+	{
+		$arrFieldDef = parent::getFieldDefinition();
+		$arrFieldDef['inputType'] = 'longtext';
+		return $arrFieldDef;
+	}
 
-    public function parseValue($arrRowData, $strOutputFormat = 'html')
-    {
-        $arrResult = parent::parseValue($arrRowData, $strOutputFormat);
-        $arrResult['html'] = $arrRowData[$this->getColName()];
-        return $arrResult;
-    }
+	public function parseValue($arrRowData, $strOutputFormat = 'html')
+	{
+		$arrResult = parent::parseValue($arrRowData, $strOutputFormat);
+		$arrResult['html'] = $arrRowData[$this->getColName()];
+		return $arrResult;
+	}
 
 }
 
