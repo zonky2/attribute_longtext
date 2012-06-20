@@ -55,14 +55,6 @@ class MetaModelAttributeLongtext extends MetaModelAttributeSimple
 		$arrFieldDef['inputType'] = 'longtext';
 		return $arrFieldDef;
 	}
-
-	public function parseValue($arrRowData, $strOutputFormat = 'html')
-	{
-		$arrResult = parent::parseValue($arrRowData, $strOutputFormat);
-		$arrResult['html'] = $arrRowData[$this->getColName()];
-		return $arrResult;
-	}
-
 }
 
 ?>
