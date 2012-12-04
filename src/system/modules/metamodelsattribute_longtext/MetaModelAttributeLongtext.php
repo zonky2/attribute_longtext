@@ -17,7 +17,7 @@
 
 /**
  * This is the MetaModelAttribute class for handling text fields.
- * 
+ *
  * @package     MetaModels
  * @subpackage  AttributeText
  * @author      Christian Schiffler <c.schiffler@cyberspectrum.de>
@@ -52,7 +52,7 @@ class MetaModelAttributeLongtext extends MetaModelAttributeSimple
 	public function getFieldDefinition()
 	{
 		$arrFieldDef = parent::getFieldDefinition();
-		$arrFieldDef['inputType'] = 'longtext';
+		$arrFieldDef['inputType'] = 'textarea';
 		return $arrFieldDef;
 	}
 }
