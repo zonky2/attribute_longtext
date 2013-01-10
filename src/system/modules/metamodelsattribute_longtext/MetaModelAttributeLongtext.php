@@ -33,25 +33,19 @@ class MetaModelAttributeLongtext extends MetaModelAttributeSimple
 	public function getAttributeSettingNames()
 	{
 		return array_merge(parent::getAttributeSettingNames(), array(
-			'parentCheckbox',
-			'titleField',
-			'width50',
-			'insertBreak',
-			'sortingField',
-			'filteredField',
-			'searchableField',
-			'mandatory',
-			'defValue',
-			'uniqueItem',
-			'formatPrePost',
-			'format',
-			'editGroups'
+			'allowHtml',
+			'rte',
+			'preserveTags',
+			'decodeEntities',
+			'rte',
+			'rows',
+			'cols',
 		));
 	}
 
-	public function getFieldDefinition()
+	public function getFieldDefinition($arrOverrides = array())
 	{
-		$arrFieldDef = parent::getFieldDefinition();
+		$arrFieldDef = parent::getFieldDefinition($arrOverrides);
 		$arrFieldDef['inputType'] = 'textarea';
 		return $arrFieldDef;
 	}
