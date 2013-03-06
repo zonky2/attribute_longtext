@@ -21,7 +21,7 @@
  */
 ClassLoader::addClasses(array
 (
-	'MetaModelAttributeText'              => 'system/modules/metamodelsattribute_longtext/MetaModelAttributeLongtext.php',
+	'MetaModelAttributeLongtext'              => 'system/modules/metamodelsattribute_longtext/MetaModelAttributeLongtext.php',
 ));
 
 
