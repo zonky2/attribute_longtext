@@ -34,6 +34,7 @@ class MetaModelAttributeLongtext extends MetaModelAttributeSimple
 		return array_merge(parent::getAttributeSettingNames(), array(
 			'allowHtml',
 			'rte',
+			'mandatory',
 			'preserveTags',
 			'decodeEntities',
 			'rte',
