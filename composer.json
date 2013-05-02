@@ -1,7 +1,7 @@
 {
-	"name":"metamodels/attribute_langcode",
-	"description":"MetaModels attribute for langcodes",
-	"keywords":["contao", "metamodels", "attribute", "langcode"],
+	"name":"metamodels/attribute_longtext",
+	"description":"MetaModels attribute for longtext",
+	"keywords":["contao", "metamodels", "attribute", "longtext", "nontranslatable"],
 	"type":"contao-module",
 	"homepage":"http://now.metamodel.me/",
 	"license":"LGPL-3.0+",
@@ -38,10 +38,10 @@
 	],
 	"support":{
 		"email":"mail@metamodel.me",
-		"issues":"https://github.com/MetaModels/attribute_langcode/issues",
+		"issues":"https://github.com/MetaModels/attribute_longtext/issues",
 		"wiki":"http://de.contaowiki.org/MetaModels",
 		"irc":"irc://irc.freenode.org/contao.mm",
-		"source":"https://github.com/MetaModels/attribute_langcode"
+		"source":"https://github.com/MetaModels/attribute_longtext"
 	},
 	"require":{
 		"php":">=5.3",
@@ -51,7 +51,7 @@
 	"extra":{
 		"contao": {
 			"symlinks":{
-				"src/system/modules/metamodelsattribute_langcode":"system/modules/metamodelsattribute_langcode"
+				"src/system/modules/metamodelsattribute_longtext":"system/modules/metamodelsattribute_longtext"
 			}
 		}
 	}
