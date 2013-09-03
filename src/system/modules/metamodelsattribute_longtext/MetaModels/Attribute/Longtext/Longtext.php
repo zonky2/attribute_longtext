@@ -15,14 +15,18 @@
  * @filesource
  */
 
+namespace MetaModels\Attribute\Longtext;
+
+use MetaModels\Attribute\BaseSimple;
+
 /**
- * This is the MetaModelAttribute class for handling text fields.
+ * This is the MetaModelAttribute class for handling long text fields.
  *
  * @package     MetaModels
  * @subpackage  AttributeLongtext
  * @author      Christian Schiffler <c.schiffler@cyberspectrum.de>
  */
-class MetaModelAttributeLongtext extends MetaModelAttributeSimple
+class Longtext extends BaseSimple
 {
 	public function getSQLDataType()
 	{
@@ -45,8 +49,9 @@ class MetaModelAttributeLongtext extends MetaModelAttributeSimple
 
 	public function getFieldDefinition($arrOverrides = array())
 	{
-		$arrFieldDef = parent::getFieldDefinition($arrOverrides);
+		$arrFieldDef              = parent::getFieldDefinition($arrOverrides);
 		$arrFieldDef['inputType'] = 'textarea';
+
 		return $arrFieldDef;
 	}
 }
