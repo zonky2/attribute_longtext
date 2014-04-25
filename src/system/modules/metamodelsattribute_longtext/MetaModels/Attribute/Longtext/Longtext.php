@@ -28,11 +28,17 @@ use MetaModels\Attribute\BaseSimple;
  */
 class Longtext extends BaseSimple
 {
+	/**
+	 * {@inheritDoc}
+	 */
 	public function getSQLDataType()
 	{
 		return 'text NULL';
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public function getAttributeSettingNames()
 	{
 		return array_merge(parent::getAttributeSettingNames(), array(
@@ -47,6 +53,9 @@ class Longtext extends BaseSimple
 		));
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public function getFieldDefinition($arrOverrides = array())
 	{
 		$arrFieldDef              = parent::getFieldDefinition($arrOverrides);
