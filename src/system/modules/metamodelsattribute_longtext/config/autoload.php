@@ -17,17 +17,6 @@
  */
 
 /**
- * Register the classes
- */
-ClassLoader::addClasses(array
-(
-	'MetaModels\Attribute\Longtext\Longtext' => 'system/modules/metamodelsattribute_longtext/MetaModels/Attribute/Longtext/Longtext.php',
-
-	'MetaModelAttributeLongtext'             => 'system/modules/metamodelsattribute_longtext/deprecated/MetaModelAttributeLongtext.php',
-));
-
-
-/**
  * Register the templates
  */
 TemplateLoader::addFiles(array

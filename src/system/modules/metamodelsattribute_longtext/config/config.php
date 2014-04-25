@@ -17,7 +17,3 @@
 
 $GLOBALS['METAMODELS']['attributes']['longtext']['class'] = 'MetaModels\Attribute\Longtext\Longtext';
 $GLOBALS['METAMODELS']['attributes']['longtext']['image'] = 'system/modules/metamodelsattribute_longtext/html/longtext.png';
-
-// non composerized Contao 2.X autoload support.
-$GLOBALS['MM_AUTOLOAD'][] = dirname(__DIR__);
-$GLOBALS['MM_AUTOLOAD'][] = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'deprecated';
