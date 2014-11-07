@@ -21,5 +21,5 @@
  */
 TemplateLoader::addFiles(array
 (
-	'mm_attr_longtext'              => 'system/modules/metamodelsattribute_longtext/templates',
+    'mm_attr_longtext' => 'system/modules/metamodelsattribute_longtext/templates',
 ));
