@@ -28,39 +28,39 @@ use MetaModels\Attribute\BaseSimple;
  */
 class Longtext extends BaseSimple
 {
-	/**
-	 * {@inheritDoc}
-	 */
-	public function getSQLDataType()
-	{
-		return 'text NULL';
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public function getSQLDataType()
+    {
+        return 'text NULL';
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public function getAttributeSettingNames()
-	{
-		return array_merge(parent::getAttributeSettingNames(), array(
-			'allowHtml',
-			'rte',
-			'mandatory',
-			'preserveTags',
-			'decodeEntities',
-			'rte',
-			'rows',
-			'cols',
-		));
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public function getAttributeSettingNames()
+    {
+        return array_merge(parent::getAttributeSettingNames(), array(
+            'allowHtml',
+            'rte',
+            'mandatory',
+            'preserveTags',
+            'decodeEntities',
+            'rte',
+            'rows',
+            'cols',
+        ));
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public function getFieldDefinition($arrOverrides = array())
-	{
-		$arrFieldDef              = parent::getFieldDefinition($arrOverrides);
-		$arrFieldDef['inputType'] = 'textarea';
+    /**
+     * {@inheritDoc}
+     */
+    public function getFieldDefinition($arrOverrides = array())
+    {
+        $arrFieldDef              = parent::getFieldDefinition($arrOverrides);
+        $arrFieldDef['inputType'] = 'textarea';
 
-		return $arrFieldDef;
-	}
+        return $arrFieldDef;
+    }
 }

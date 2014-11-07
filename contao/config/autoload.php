@@ -10,12 +10,16 @@
  * @package     MetaModels
  * @subpackage  AttributeLongtext
  * @author      Christian Schiffler <c.schiffler@cyberspectrum.de>
+ * @author      Andreas Isaak <info@andreas-isaak.de>
  * @copyright   The MetaModels team.
  * @license     LGPL.
  * @filesource
  */
 
 /**
- * Table tl_metamodel_attribute 
+ * Register the templates
  */
-$GLOBALS['TL_DCA']['tl_metamodel_attribute']['metapalettes']['longtext extends _simpleattribute_'] = array();
+TemplateLoader::addFiles(array
+(
+    'mm_attr_longtext' => 'system/modules/metamodelsattribute_longtext/templates',
+));

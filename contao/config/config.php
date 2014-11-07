@@ -17,4 +17,4 @@
 
 $GLOBALS['METAMODELS']['attributes']['longtext']['class'] = 'MetaModels\Attribute\Longtext\Longtext';
 $GLOBALS['METAMODELS']['attributes']['longtext']['image'] =
-	'system/modules/metamodelsattribute_longtext/html/longtext.png';
+    'system/modules/metamodelsattribute_longtext/html/longtext.png';
