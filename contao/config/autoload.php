@@ -10,7 +10,7 @@
  * @package     MetaModels
  * @subpackage  AttributeLongtext
  * @author      Christian Schiffler <c.schiffler@cyberspectrum.de>
- * @author      Andreas Isaak <info@andreas-isaak.de>
+ * @author      Christopher Boelter <c.boelter@cogizz.de>
  * @copyright   The MetaModels team.
  * @license     LGPL.
  * @filesource
