@@ -44,13 +44,12 @@ class Longtext extends BaseSimple
     {
         return array_merge(parent::getAttributeSettingNames(), array(
             'allowHtml',
-            'rte',
+            'cols',
+            'decodeEntities',
             'mandatory',
             'preserveTags',
-            'decodeEntities',
             'rte',
             'rows',
-            'cols',
         ));
     }
 
