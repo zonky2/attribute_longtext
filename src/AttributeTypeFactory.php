@@ -36,7 +36,7 @@ class AttributeTypeFactory extends AbstractAttributeTypeFactory
         parent::__construct();
 
         $this->typeName  = 'longtext';
-        $this->typeIcon  = 'system/modules/metamodelsattribute_longtext/html/longtext.png';
+        $this->typeIcon  = 'bundles/metamodelsattributelongtext/longtext.png';
         $this->typeClass = 'MetaModels\Attribute\Longtext\Longtext';
     }
 }
