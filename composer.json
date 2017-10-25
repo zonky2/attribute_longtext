@@ -45,13 +45,13 @@
     "contao/manager-plugin": "~2.1"
   },
   "autoload": {
-    "psr-0": {
-      "MetaModels\\Attribute\\Longtext": "src"
+    "psr-4": {
+      "MetaModels\\Attribute\\Longtext\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "MetaModels\\Test\\Attribute\\Longtext": "tests"
+      "MetaModels\\Test\\Attribute\\Longtext\\": "tests"
     }
   },
   "extra": {

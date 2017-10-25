@@ -21,12 +21,15 @@
 
 namespace MetaModels\Test\Attribute\Longtext;
 
+use Doctrine\DBAL\Connection;
 use MetaModels\Attribute\Longtext\Longtext;
+use MetaModels\Helper\TableManipulator;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Unit tests to test class longtext.
  */
-class LongtextTest extends \PHPUnit_Framework_TestCase
+class LongtextTest extends TestCase
 {
     /**
      * Mock a MetaModel.
@@ -38,11 +41,7 @@ class LongtextTest extends \PHPUnit_Framework_TestCase
      */
     protected function mockMetaModel($language, $fallbackLanguage)
     {
-        $metaModel = $this->getMock(
-            'MetaModels\MetaModel',
-            array(),
-            array(array())
-        );
+        $metaModel = $this->getMockBuilder('MetaModels\IMetaModel')->getMock();
 
         $metaModel
             ->expects($this->any())
@@ -63,13 +62,42 @@ class LongtextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Mock the database connection.
+     *
+     * @return \PHPUnit_Framework_MockObject_MockObject|Connection
+     */
+    private function mockConnection()
+    {
+        return $this->getMockBuilder(Connection::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+    }
+
+    /**
+     * Mock the table manipulator.
+     *
+     * @param Connection $connection The database connection mock.
+     *
+     * @return TableManipulator|\PHPUnit_Framework_MockObject_MockObject
+     */
+    private function mockTableManipulator(Connection $connection)
+    {
+        return $this->getMockBuilder(TableManipulator::class)
+            ->setConstructorArgs([$connection, []])
+            ->getMock();
+    }
+
+    /**
      * Test that the attribute can be instantiated.
      *
      * @return void
      */
     public function testInstantiation()
     {
-        $text = new Longtext($this->mockMetaModel('en', 'en'));
+        $connection  = $this->mockConnection();
+        $manipulator = $this->mockTableManipulator($connection);
+
+        $text = new Longtext($this->mockMetaModel('en', 'en'), [], $connection, $manipulator);
         $this->assertInstanceOf('MetaModels\Attribute\Longtext\Longtext', $text);
     }
 
@@ -116,7 +144,9 @@ class LongtextTest extends \PHPUnit_Framework_TestCase
             }
         }
 
-        $attribute       = new Longtext($this->mockMetaModel('en', 'en'), $serialized);
+        $connection      = $this->mockConnection();
+        $manipulator     = $this->mockTableManipulator($connection);
+        $attribute       = new Longtext($this->mockMetaModel('en', 'en'), $serialized, $connection, $manipulator);
         $fieldDefinition = $attribute->getFieldDefinition(
             array(
                 'tl_class' => 'some_widget_class',

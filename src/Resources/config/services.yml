@@ -1,5 +1,5 @@
 services:
-    metamodels.attribute_url.factory:
+    metamodels.attribute_longtext.factory:
         class: MetaModels\Attribute\Longtext\AttributeTypeFactory
         arguments:
             - '@database_connection'
