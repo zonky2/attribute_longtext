@@ -51,7 +51,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "MetaModels\\Test\\Attribute\\Longtext\\": "tests"
+      "MetaModels\\Test\\Attribute\\Longtext\\": "tests/Test"
     }
   },
   "extra": {
