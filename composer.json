@@ -55,7 +55,7 @@
     }
   },
   "extra": {
-    "contao-manager-plugin": "MetaModels\\Attribute\\LongText\\ContaoManager\\Plugin",
+    "contao-manager-plugin": "MetaModels\\Attribute\\Longtext\\ContaoManager\\Plugin",
     "contao": {
       "transifex": {
         "project": "metamodels",
