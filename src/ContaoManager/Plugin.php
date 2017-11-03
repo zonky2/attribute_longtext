@@ -18,12 +18,12 @@
  * @filesource
  */
 
-namespace MetaModels\Attribute\Longtext\ContaoManager;
+namespace MetaModels\AttributeLongtextBundle\ContaoManager;
 
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use MetaModels\Attribute\Longtext\MetaModelsAttributeLongtextBundle;
+use MetaModels\AttributeLongtextBundle\MetaModelsAttributeLongtextBundle;
 use MetaModels\CoreBundle\MetaModelsCoreBundle;
 
 /**

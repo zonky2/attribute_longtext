@@ -19,7 +19,7 @@
  * @filesource
  */
 
-namespace MetaModels\Attribute\Longtext;
+namespace MetaModels\AttributeLongtextBundle\Attribute;
 
 use Doctrine\DBAL\Connection;
 use MetaModels\Attribute\AbstractSimpleAttributeTypeFactory;
@@ -39,6 +39,6 @@ class AttributeTypeFactory extends AbstractSimpleAttributeTypeFactory
 
         $this->typeName  = 'longtext';
         $this->typeIcon  = 'bundles/metamodelsattributelongtext/longtext.png';
-        $this->typeClass = 'MetaModels\Attribute\Longtext\Longtext';
+        $this->typeClass = Longtext::class;
     }
 }

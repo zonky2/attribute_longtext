@@ -18,10 +18,10 @@
  * @filesource
  */
 
-namespace MetaModels\Test\Attribute\Longtext\DependencyInjection;
+namespace MetaModels\AttributeLongtextBundle\Test\DependencyInjection;
 
-use MetaModels\Attribute\Longtext\AttributeTypeFactory;
-use MetaModels\Attribute\Longtext\DependencyInjection\MetaModelsAttributeLongtextExtension;
+use MetaModels\AttributeLongtextBundle\Attribute\AttributeTypeFactory;
+use MetaModels\AttributeLongtextBundle\DependencyInjection\MetaModelsAttributeLongtextExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;

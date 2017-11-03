@@ -20,7 +20,7 @@
  * @filesource
  */
 
-namespace MetaModels\Attribute\Longtext;
+namespace MetaModels\AttributeLongtextBundle\Attribute;
 
 use MetaModels\Attribute\BaseSimple;
 

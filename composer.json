@@ -46,21 +46,24 @@
   },
   "autoload": {
     "psr-4": {
-      "MetaModels\\Attribute\\Longtext\\": "src"
-    }
+      "MetaModels\\AttributeLongtextBundle\\": "src"
+    },
+    "files": [
+      "src/deprecated-autoload.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
-      "MetaModels\\Test\\Attribute\\Longtext\\": "tests/Test"
+      "MetaModels\\AttributeLongtextBundle\\Test\\": "tests/Test"
     }
   },
   "extra": {
-    "contao-manager-plugin": "MetaModels\\Attribute\\Longtext\\ContaoManager\\Plugin",
+    "contao-manager-plugin": "MetaModels\\AttributeLongtextBundle\\Plugin",
     "contao": {
       "transifex": {
         "project": "metamodels",
         "prefix": "attribute_longtext-",
-        "languages_cto": "contao/languages",
+        "languages_cto": "src/Resources/contao/languages",
         "languages_tx": ".tx"
       }
     },

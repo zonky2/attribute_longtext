@@ -19,10 +19,10 @@
  * @filesource
  */
 
-namespace MetaModels\Test\Attribute\Longtext;
+namespace MetaModels\AttributeLongtextBundle\Test\Attribute;
 
 use Doctrine\DBAL\Connection;
-use MetaModels\Attribute\Longtext\Longtext;
+use MetaModels\AttributeLongtextBundle\Attribute\Longtext;
 use MetaModels\Helper\TableManipulator;
 use PHPUnit\Framework\TestCase;
 
@@ -98,7 +98,7 @@ class LongtextTest extends TestCase
         $manipulator = $this->mockTableManipulator($connection);
 
         $text = new Longtext($this->mockMetaModel('en', 'en'), [], $connection, $manipulator);
-        $this->assertInstanceOf('MetaModels\Attribute\Longtext\Longtext', $text);
+        $this->assertInstanceOf(Longtext::class, $text);
     }
 
 

@@ -19,11 +19,12 @@
  * @filesource
  */
 
-namespace MetaModels\Test\Attribute\Longtext;
+namespace MetaModels\AttributeLongtextBundle\Test\Attribute;
 
 use Doctrine\DBAL\Connection;
 use MetaModels\Attribute\IAttributeTypeFactory;
-use MetaModels\Attribute\Longtext\AttributeTypeFactory;
+use MetaModels\AttributeLongtextBundle\Attribute\AttributeTypeFactory;
+use MetaModels\AttributeLongtextBundle\Attribute\Longtext;
 use MetaModels\Helper\TableManipulator;
 use MetaModels\IMetaModel;
 use PHPUnit\Framework\TestCase;
@@ -123,7 +124,7 @@ class LongtextAttributeTypeFactoryTest extends TestCase
             $this->mockMetaModel('mm_test', 'de', 'en')
         );
 
-        $this->assertInstanceOf('MetaModels\Attribute\Longtext\Longtext', $attribute);
+        $this->assertInstanceOf(Longtext::class, $attribute);
 
         foreach ($values as $key => $value) {
             $this->assertEquals($value, $attribute->get($key), $key);
