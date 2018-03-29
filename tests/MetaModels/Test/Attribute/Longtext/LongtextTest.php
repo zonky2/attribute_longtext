@@ -3,7 +3,7 @@
 /**
  * This file is part of MetaModels/attribute_longtext.
  *
- * (c) 2012-2017 The MetaModels team.
+ * (c) 2012-2018 The MetaModels team.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,7 +13,8 @@
  * @package    MetaModels
  * @subpackage AttributeLongtext
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
- * @copyright  2012-2017 The MetaModels team.
+ * @author     Sven Baumann <baumann.sv@gmail.com>
+ * @copyright  2012-2018 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_longtext/blob/master/LICENSE LGPL-3.0
  * @filesource
  */
@@ -21,11 +22,13 @@
 namespace MetaModels\Test\Attribute\Longtext;
 
 use MetaModels\Attribute\Longtext\Longtext;
+use MetaModels\MetaModel;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Unit tests to test class longtext.
  */
-class LongtextTest extends \PHPUnit_Framework_TestCase
+class LongtextTest extends TestCase
 {
     /**
      * Mock a MetaModel.
@@ -37,11 +40,7 @@ class LongtextTest extends \PHPUnit_Framework_TestCase
      */
     protected function mockMetaModel($language, $fallbackLanguage)
     {
-        $metaModel = $this->getMock(
-            'MetaModels\MetaModel',
-            array(),
-            array(array())
-        );
+        $metaModel = $this->getMockBuilder(MetaModel::class)->setMethods([])->setConstructorArgs([[]])->getMock();
 
         $metaModel
             ->expects($this->any())
@@ -69,7 +68,7 @@ class LongtextTest extends \PHPUnit_Framework_TestCase
     public function testInstantiation()
     {
         $text = new Longtext($this->mockMetaModel('en', 'en'));
-        $this->assertInstanceOf('MetaModels\Attribute\Longtext\Longtext', $text);
+        $this->assertInstanceOf(Longtext::class, $text);
     }
 
 
@@ -80,18 +79,18 @@ class LongtextTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetFieldDefinition()
     {
-        $attributes = array(
+        $attributes = [
             'id'             => 1,
             'pid'            => 1,
             'tstamp'         => 0,
-            'name'           => array(
+            'name'           => [
                 'en'         => 'name English',
                 'de'         => 'name German',
-            ),
-            'description'    => array(
+            ],
+            'description'    => [
                 'en'         => 'description English',
                 'de'         => 'description German',
-            ),
+            ],
             'type'           => 'base',
             'colname'        => 'baseattribute',
             'isvariant'      => 1,
@@ -104,12 +103,12 @@ class LongtextTest extends \PHPUnit_Framework_TestCase
             'decodeEntities' => null,
             'rows'           => null,
             'cols'           => null,
-        );
+        ];
 
-        $serialized = array();
+        $serialized = [];
         foreach ($attributes as $key => $value) {
-            if (is_array($value)) {
-                $serialized[$key] = serialize($value);
+            if (\is_array($value)) {
+                $serialized[$key] = \serialize($value);
             } else {
                 $serialized[$key] = $value;
             }
@@ -117,15 +116,15 @@ class LongtextTest extends \PHPUnit_Framework_TestCase
 
         $attribute       = new Longtext($this->mockMetaModel('en', 'en'), $serialized);
         $fieldDefinition = $attribute->getFieldDefinition(
-            array(
+            [
                 'tl_class' => 'some_widget_class',
                 'readonly' => true,
                 'rte'      => 'tinyMCE',
-            )
+            ]
         );
 
-        $this->assertFalse(array_key_exists('filter', $fieldDefinition));
-        $this->assertFalse(array_key_exists('search', $fieldDefinition));
+        $this->assertFalse(\array_key_exists('filter', $fieldDefinition));
+        $this->assertFalse(\array_key_exists('search', $fieldDefinition));
         $this->assertEquals('textarea', $fieldDefinition['inputType']);
         $this->assertEquals('some_widget_class', $fieldDefinition['eval']['tl_class']);
         $this->assertEquals(true, $fieldDefinition['eval']['readonly']);
