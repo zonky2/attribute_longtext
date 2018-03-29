@@ -23,11 +23,12 @@ namespace MetaModels\Test\Attribute\Longtext;
 
 use MetaModels\Attribute\Longtext\Longtext;
 use MetaModels\MetaModel;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Unit tests to test class longtext.
  */
-class LongtextTest extends \PHPUnit_Framework_TestCase
+class LongtextTest extends TestCase
 {
     /**
      * Mock a MetaModel.
@@ -39,11 +40,7 @@ class LongtextTest extends \PHPUnit_Framework_TestCase
      */
     protected function mockMetaModel($language, $fallbackLanguage)
     {
-        $metaModel = $this->getMock(
-            MetaModel::class,
-            [],
-            [[]]
-        );
+        $metaModel = $this->getMockBuilder(MetaModel::class)->setMethods([])->setConstructorArgs([[]])->getMock();
 
         $metaModel
             ->expects($this->any())
