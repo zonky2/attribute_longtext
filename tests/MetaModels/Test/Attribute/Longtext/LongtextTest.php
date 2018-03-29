@@ -110,8 +110,8 @@ class LongtextTest extends \PHPUnit_Framework_TestCase
 
         $serialized = [];
         foreach ($attributes as $key => $value) {
-            if (is_array($value)) {
-                $serialized[$key] = serialize($value);
+            if (\is_array($value)) {
+                $serialized[$key] = \serialize($value);
             } else {
                 $serialized[$key] = $value;
             }
@@ -126,8 +126,8 @@ class LongtextTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $this->assertFalse(array_key_exists('filter', $fieldDefinition));
-        $this->assertFalse(array_key_exists('search', $fieldDefinition));
+        $this->assertFalse(\array_key_exists('filter', $fieldDefinition));
+        $this->assertFalse(\array_key_exists('search', $fieldDefinition));
         $this->assertEquals('textarea', $fieldDefinition['inputType']);
         $this->assertEquals('some_widget_class', $fieldDefinition['eval']['tl_class']);
         $this->assertEquals(true, $fieldDefinition['eval']['readonly']);
