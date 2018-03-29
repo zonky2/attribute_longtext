@@ -3,7 +3,7 @@
 /**
  * This file is part of MetaModels/attribute_longtext.
  *
- * (c) 2012-2017 The MetaModels team.
+ * (c) 2012-2018 The MetaModels team.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,7 +14,8 @@
  * @subpackage AttributeLongtext
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
  * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2012-2017 The MetaModels team.
+ * @author     Sven Baumann <baumann.sv@gmail.com>
+ * @copyright  2012-2018 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_longtext/blob/master/LICENSE LGPL-3.0
  * @filesource
  */
@@ -47,7 +48,7 @@ class LongtextAttributeTypeFactoryTest extends TestCase
      */
     protected function mockMetaModel($tableName, $language, $fallbackLanguage)
     {
-        $metaModel = $this->getMockBuilder('MetaModels\IMetaModel')->getMock();
+        $metaModel = $this->getMockBuilder(IMetaModel::class)->getMock();
 
         $metaModel
             ->expects($this->any())
@@ -103,7 +104,7 @@ class LongtextAttributeTypeFactoryTest extends TestCase
         $connection  = $this->mockConnection();
         $manipulator = $this->mockTableManipulator($connection);
 
-        return array(new AttributeTypeFactory($connection, $manipulator));
+        return [new AttributeTypeFactory($connection, $manipulator)];
     }
 
     /**
@@ -117,8 +118,7 @@ class LongtextAttributeTypeFactoryTest extends TestCase
         $manipulator = $this->mockTableManipulator($connection);
 
         $factory   = new AttributeTypeFactory($connection, $manipulator);
-        $values    = array(
-        );
+        $values    = [];
         $attribute = $factory->createInstance(
             $values,
             $this->mockMetaModel('mm_test', 'de', 'en')

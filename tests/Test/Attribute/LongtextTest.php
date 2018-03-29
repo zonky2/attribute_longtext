@@ -3,7 +3,7 @@
 /**
  * This file is part of MetaModels/attribute_longtext.
  *
- * (c) 2012-2017 The MetaModels team.
+ * (c) 2012-2018 The MetaModels team.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,7 +14,8 @@
  * @subpackage AttributeLongtext
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
  * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2012-2017 The MetaModels team.
+ * @author     Sven Baumann <baumann.sv@gmail.com>
+ * @copyright  2012-2018 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_longtext/blob/master/LICENSE LGPL-3.0
  * @filesource
  */
@@ -25,6 +26,7 @@ use Doctrine\DBAL\Connection;
 use MetaModels\AttributeLongtextBundle\Attribute\Longtext;
 use MetaModels\Helper\TableManipulator;
 use PHPUnit\Framework\TestCase;
+use MetaModels\IMetaModel;
 
 /**
  * Unit tests to test class longtext.
@@ -41,7 +43,7 @@ class LongtextTest extends TestCase
      */
     protected function mockMetaModel($language, $fallbackLanguage)
     {
-        $metaModel = $this->getMockBuilder('MetaModels\IMetaModel')->getMock();
+        $metaModel = $this->getMockBuilder(IMetaModel::class)->getMock();
 
         $metaModel
             ->expects($this->any())
@@ -109,18 +111,18 @@ class LongtextTest extends TestCase
      */
     public function testGetFieldDefinition()
     {
-        $attributes = array(
+        $attributes = [
             'id'             => 1,
             'pid'            => 1,
             'tstamp'         => 0,
-            'name'           => array(
+            'name'           => [
                 'en'         => 'name English',
                 'de'         => 'name German',
-            ),
-            'description'    => array(
+            ],
+            'description'    => [
                 'en'         => 'description English',
                 'de'         => 'description German',
-            ),
+            ],
             'type'           => 'base',
             'colname'        => 'baseattribute',
             'isvariant'      => 1,
@@ -133,12 +135,12 @@ class LongtextTest extends TestCase
             'decodeEntities' => null,
             'rows'           => null,
             'cols'           => null,
-        );
+        ];
 
-        $serialized = array();
+        $serialized = [];
         foreach ($attributes as $key => $value) {
-            if (is_array($value)) {
-                $serialized[$key] = serialize($value);
+            if (\is_array($value)) {
+                $serialized[$key] = \serialize($value);
             } else {
                 $serialized[$key] = $value;
             }
@@ -148,15 +150,15 @@ class LongtextTest extends TestCase
         $manipulator     = $this->mockTableManipulator($connection);
         $attribute       = new Longtext($this->mockMetaModel('en', 'en'), $serialized, $connection, $manipulator);
         $fieldDefinition = $attribute->getFieldDefinition(
-            array(
+            [
                 'tl_class' => 'some_widget_class',
                 'readonly' => true,
                 'rte'      => 'tinyMCE',
-            )
+            ]
         );
 
-        $this->assertFalse(array_key_exists('filter', $fieldDefinition));
-        $this->assertFalse(array_key_exists('search', $fieldDefinition));
+        $this->assertFalse(\array_key_exists('filter', $fieldDefinition));
+        $this->assertFalse(\array_key_exists('search', $fieldDefinition));
         $this->assertEquals('textarea', $fieldDefinition['inputType']);
         $this->assertEquals('some_widget_class', $fieldDefinition['eval']['tl_class']);
         $this->assertEquals(true, $fieldDefinition['eval']['readonly']);
