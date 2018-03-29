@@ -25,6 +25,8 @@ use MetaModels\Attribute\IAttributeTypeFactory;
 use MetaModels\Attribute\Longtext\AttributeTypeFactory;
 use MetaModels\IMetaModel;
 use MetaModels\Test\Attribute\AttributeTypeFactoryTest;
+use MetaModels\Attribute\Longtext\Longtext;
+use MetaModels\MetaModel;
 
 /**
  * Test the attribute factory.
@@ -45,7 +47,7 @@ class LongtextAttributeTypeFactoryTest extends AttributeTypeFactoryTest
     protected function mockMetaModel($tableName, $language, $fallbackLanguage)
     {
         $metaModel = $this->getMock(
-            'MetaModels\MetaModel',
+            MetaModel::class,
             [],
             [[]]
         );
@@ -92,7 +94,7 @@ class LongtextAttributeTypeFactoryTest extends AttributeTypeFactoryTest
             $this->mockMetaModel('mm_test', 'de', 'en')
         );
 
-        $this->assertInstanceOf('MetaModels\Attribute\Longtext\Longtext', $attribute);
+        $this->assertInstanceOf(Longtext::class, $attribute);
 
         foreach ($values as $key => $value) {
             $this->assertEquals($value, $attribute->get($key), $key);

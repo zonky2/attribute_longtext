@@ -22,6 +22,7 @@
 namespace MetaModels\Test\Attribute\Longtext;
 
 use MetaModels\Attribute\Longtext\Longtext;
+use MetaModels\MetaModel;
 
 /**
  * Unit tests to test class longtext.
@@ -39,7 +40,7 @@ class LongtextTest extends \PHPUnit_Framework_TestCase
     protected function mockMetaModel($language, $fallbackLanguage)
     {
         $metaModel = $this->getMock(
-            'MetaModels\MetaModel',
+            MetaModel::class,
             [],
             [[]]
         );
@@ -70,7 +71,7 @@ class LongtextTest extends \PHPUnit_Framework_TestCase
     public function testInstantiation()
     {
         $text = new Longtext($this->mockMetaModel('en', 'en'));
-        $this->assertInstanceOf('MetaModels\Attribute\Longtext\Longtext', $text);
+        $this->assertInstanceOf(Longtext::class, $text);
     }
 
 
