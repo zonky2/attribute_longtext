@@ -56,12 +56,6 @@
     "contao": {
       "sources": {
         "contao": "system/modules/metamodelsattribute_longtext"
-      },
-      "transifex": {
-        "project": "metamodels",
-        "prefix": "attribute_longtext-",
-        "languages_cto": "contao/languages",
-        "languages_tx": ".tx"
       }
     },
     "branch-alias": {
