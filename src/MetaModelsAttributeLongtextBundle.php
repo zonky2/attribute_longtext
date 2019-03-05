@@ -1,7 +1,7 @@
 <?php
 
 /**
- * * This file is part of MetaModels/attribute_longtext.
+ * This file is part of MetaModels/attribute_longtext.
  *
  * (c) 2012-2019 The MetaModels team.
  *
