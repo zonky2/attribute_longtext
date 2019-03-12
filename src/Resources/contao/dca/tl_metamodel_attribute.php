@@ -13,28 +13,14 @@
  * @package    MetaModels/attribute_longtext
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
  * @author     Christopher Boelter <c.boelter@cogizz.de>
+ * @author     David Molineus <david.molineus@netzmacht.de>
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @copyright  2012-2019 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_longtext/blob/master/LICENSE LGPL-3.0-or-later
  * @filesource
  */
 
-error_reporting(E_ALL);
-
-function includeIfExists($file)
-{
-    return file_exists($file) ? include $file : false;
-}
-
-if (
-    // Locally installed dependencies
-    (!$loader = includeIfExists(__DIR__ . '/../vendor/autoload.php'))
-    // We are within an composer install.
-    && (!$loader = includeIfExists(__DIR__ . '/../../../autoload.php'))
-) {
-    echo 'You must set up the project dependencies, run the following commands:' . PHP_EOL .
-         'curl -sS https://getcomposer.org/installer | php' . PHP_EOL .
-         'php composer.phar install' . PHP_EOL;
-    exit(1);
-}
-
-$loader->add('MetaModels\Test', __DIR__);
+/**
+ * Table tl_metamodel_attribute
+ */
+$GLOBALS['TL_DCA']['tl_metamodel_attribute']['metapalettes']['longtext extends _simpleattribute_'] = [];

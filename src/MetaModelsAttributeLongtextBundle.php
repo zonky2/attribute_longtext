@@ -12,30 +12,20 @@
  *
  * @package    MetaModels/attribute_longtext
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
- * @author     Christopher Boelter <c.boelter@cogizz.de>
- * @author     Sven Baumann <baumann.sv@gmail.com>
+ * @author     David Molineus <david.molineus@netzmacht.de>
  * @copyright  2012-2019 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_longtext/blob/master/LICENSE LGPL-3.0-or-later
  * @filesource
  */
 
-$GLOBALS['TL_DCA']['tl_metamodel_dcasetting']['metasubselectpalettes']['attr_id']['longtext'] = [
-    'presentation' => [
-        'tl_class',
-        'rte',
-        'rows',
-        'cols',
-    ],
-    'functions'    => [
-        'mandatory',
-        'allowHtml',
-        'preserveTags',
-        'decodeEntities',
-        'trailingSlash',
-        'spaceToUnderscore',
-    ],
-    'overview'     => [
-        'filterable',
-        'searchable',
-    ]
-];
+namespace MetaModels\AttributeLongtextBundle;
+
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+/**
+ * The Bundle class.
+ */
+class MetaModelsAttributeLongtextBundle extends Bundle
+{
+
+}
