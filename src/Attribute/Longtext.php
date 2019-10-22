@@ -15,6 +15,7 @@
  * @author     Christopher Boelter <c.boelter@cogizz.de>
  * @author     David Molineus <david.molineus@netzmacht.de>
  * @author     Sven Baumann <baumann.sv@gmail.com>
+ * @author     Ingolf Steinhardt <info@e-spin.de>
  * @copyright  2012-2019 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_longtext/blob/master/LICENSE LGPL-3.0-or-later
  * @filesource
@@ -45,13 +46,15 @@ class Longtext extends BaseSimple
         return \array_merge(
             parent::getAttributeSettingNames(),
             [
-                'allowHtml',
-                'cols',
-                'decodeEntities',
                 'mandatory',
+                'allowHtml',
+                'decodeEntities',
                 'preserveTags',
                 'rte',
+                'cols',
                 'rows',
+                'filterable',
+                'searchable',
             ]
         );
     }
