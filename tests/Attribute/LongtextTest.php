@@ -156,8 +156,8 @@ class LongtextTest extends TestCase
             ]
         );
 
-        $this->assertFalse(\array_key_exists('filter', $fieldDefinition));
-        $this->assertFalse(\array_key_exists('search', $fieldDefinition));
+        $this->assertTrue(\array_key_exists('filter', $fieldDefinition));
+        $this->assertTrue(\array_key_exists('search', $fieldDefinition));
         $this->assertEquals('textarea', $fieldDefinition['inputType']);
         $this->assertEquals('some_widget_class', $fieldDefinition['eval']['tl_class']);
         $this->assertEquals(true, $fieldDefinition['eval']['readonly']);
