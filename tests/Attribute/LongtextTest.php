@@ -14,6 +14,7 @@
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
  * @author     David Molineus <david.molineus@netzmacht.de>
  * @author     Sven Baumann <baumann.sv@gmail.com>
+ * @author     Ingolf Steinhardt <info@e-spin.de>
  * @copyright  2012-2019 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_longtext/blob/master/LICENSE LGPL-3.0-or-later
  * @filesource
@@ -156,8 +157,8 @@ class LongtextTest extends TestCase
             ]
         );
 
-        $this->assertFalse(\array_key_exists('filter', $fieldDefinition));
-        $this->assertFalse(\array_key_exists('search', $fieldDefinition));
+        $this->assertTrue(\array_key_exists('filter', $fieldDefinition));
+        $this->assertTrue(\array_key_exists('search', $fieldDefinition));
         $this->assertEquals('textarea', $fieldDefinition['inputType']);
         $this->assertEquals('some_widget_class', $fieldDefinition['eval']['tl_class']);
         $this->assertEquals(true, $fieldDefinition['eval']['readonly']);
